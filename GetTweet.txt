@@ -1,0 +1,70 @@
+Get data from Twitter API 
+Twitter is one of the most prominent social networks in our current day and age. With people, from commoners to public figures using it as a medium to share their thoughts and opinions, it is a rich source of data. The Twitter API lets us programmatically analyze, learn from, and engage with conversation on Twitter.
+
+1. Getting Access to Twitter API
+To make any request to the Twitter API we require your API Key and Access Token. For this, we will need to apply for a developer account with Twitter and have it account approved. Once approved, you we create a project and associate it with a sample App.
+
+Applying for a Developer Account
+* Navigate to Twitter’s apply for access page and apply for a developer account.
+* After logging in we are navigated to a questionnaire on why and how we intend to use the Twitter API. 
+* Review the Developer Agreement and Policy and Submit Application.
+* Click the confirmation link to complete the application process.
+
+Get Twitter API Key and Access Token
+* On clicking the confirmation email from the above application step, we are navigated to the Twitter Developer Platform.
+
+* We are given the API key and API secret key. We use them to access the Twitter API.
+
+
+
+
+
+
+
+
+2. Fetch Data from Twitter API
+We will be using the tweepy python library which makes it easy to connect to and fetch data from the Twitter API.
+
+Install Tweepy
+We can install it using the command:
+pip install tweepy
+This will install the Tweepy library which comes with a whole range of functionality on fetching data from the Twitter API. Its API class provides access to the entire Twitter RESTful API methods. Each method can accept various parameters and return responses.
+For more, refer to tweepy’s documentation.
+
+Authenticate with Credentials	
+Open up an python environment (eg. Jupyter Notebook, Spyder, Collab etc) and use Twitter API credentials to authenticate and connect to the API.
+We use our Twitter API key and secret key as values for variables my_api_key and my_api_secret respectively. Then, initialize the tweepy OAuthHandler with the API key and the API secret and use it to get an instance of tweepy API class using which we make requests to the Twitter API.
+
+Set up search query
+A search query is simply a string telling the Twitter API what kind of tweets you want to search for. Imagine using the search bar on Twitter itself without the API. 
+Under the hood, if we’re using a search query with Twitter API, it actually returns the results from what we’d get had you searched for it directly 
+search_query = "#suicide -filter:retweets"
+
+Here we set up our search_query to fetch particular tweets and also filter out the retweets.  
+
+Collect the Tweets
+We use the Tweepy Cursor to fetch the tweets. It returns an object which can be iterated over to get the API responses.
+Here, we pass as an argument the api.search object, the search query, the language of the tweets, and the date from which to search the tweets. We also limit the number of items. The responses are iterated over and saved to the list tweets_copy.
+
+Create a dataset
+We now create a dataset (a pandas dataframe) using the attributes of the tweets received from the API.
+The dataframe tweets_df is populated with different attributes of the Tweet like the username, user’s location, the user’s description, tweet’s timing, tweet’s text, hashtag, etc.
+Having the data stored as a dataframe is quite useful for further analysis and reference.
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
